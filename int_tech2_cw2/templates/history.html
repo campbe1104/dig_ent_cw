@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Search History</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Search History</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Artist</th>
+                <th>Country</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for search in searches %}
+            <tr>
+                <td>{{ search.artist }}</td>
+                <td>{{ search.country }}</td>
+                <td>{{ search.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/" class="btn btn-primary">Back to Search</a>
+</div>
+</body>
+</html>

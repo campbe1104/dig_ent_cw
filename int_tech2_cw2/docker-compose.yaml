@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - SQLALCHEMY_DATABASE_URI=sqlite:///searches.db
+    depends_on:
+      - db
+
+  db:
+    image: nouchka/sqlite3
+    volumes:
+      - db-data:/var/lib/sqlite3/data
+    environment:
+      - SQLITE_DATABASE=searches.db
+
+volumes:
+  db-data:
